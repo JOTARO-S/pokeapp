@@ -3,6 +3,12 @@ class PokemonsController < ApplicationController
   def index
     @pokemons = Pokemon.all
   end
+  
+  def show
+  end
+  
+  def edit
+  end
 
   def new
     return if params[:search].blank?
@@ -24,6 +30,13 @@ class PokemonsController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def destroy
+    @pokemon = Pokemon.find(params[:id])
+    @pokemon.destroy
+    redirect_to pokemons_path, notice: "「#{@pokemon.name}」を逃しました。バイバイ！"
+    
   end
 
   private
