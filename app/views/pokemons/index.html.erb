@@ -10,8 +10,11 @@
           <div>
             <%= image_tag(pokemon.image_url, size: "200") %>
           </div>
-          <%= link_to "逃がす", pokemon_path(pokemon), method: :delete, data: { confirm: "本当に逃しますか？" }, class: "btn btn-danger"%>
-        </div>
+          <div class="mb-3">
+            <%= link_to "見る", pokemon_path(pokemon), class: "btn btn-success mr-3"%>
+            <%= link_to "逃がす", pokemon_path(pokemon), method: :delete, data: { confirm: "本当に逃しますか？" }, class: "btn btn-danger"%>
+          </div>  
+       </div>
       <% end %>
     <% end %>
   </div>
